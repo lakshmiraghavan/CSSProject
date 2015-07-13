@@ -17,9 +17,24 @@
         margin:0;
 
     }
+    div.captions ul{
+        float:left
+    }
+    div.captions ul li{
+        list-style: none;
+        display: inline-flex;
+        font-size: 11px;
+        margin-left: 12px;
+
+    }
         ul#ulRight{
-            float:right
+            float:right;
         }
+
+        ul#capRight{
+         float:right;
+        }
+
     ul#ulRight li.laurel {
         width: 80px;
         height: 76px;
@@ -55,6 +70,9 @@
         margin-top: 50px;
         margin-left: -1.5em;
     }
+        div#img a img:hover{
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -154,7 +172,20 @@
                 </div></li>
             </ul>
         </div>
-        <div class="border"></div>
+        <div>
+        <div class="captions">
+            <ul>
+                <li>DESIGN</li>
+                <li>USABILITY</li>
+                <li>CREATIVITY</li>
+                <li>CONTENT</li>
+            </ul>
+            <ul id="capRight">
+                <li>SITE OF THE DAY</li>
+                <li>AVERAGE</li>
+            </ul>
+        </div>
+        </div>
 
     </div>
 
