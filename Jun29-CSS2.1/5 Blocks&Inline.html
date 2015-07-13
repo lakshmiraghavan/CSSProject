@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ock and InlineBl</title>
+    <style>
+        div{
+            background-color: red;
+            color:white;
+            font: 300 1em 'Helvetica Neue'
+            padding: 0.5em;
+            margin:0.5em
+            display: block;
+            /* block, inline, inline-block(some features of block and inline together) */
+        }
+        span{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div>
+    Block takes available width. Also has width, height, margin, padding.
+    Block elements pushed other elemets.
+    Span takes content width. No width, height, margin. Padding should not be added
+    /*
+    Height and width inside content block. Padding is above content block
+    */
+</div>
+<span>
+    Content : No padding for inline elements, as it breaks the page. No height. No width. Also margin wont work
+
+</span>
+
+</body>
+</html>

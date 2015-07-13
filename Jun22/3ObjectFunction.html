@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var x= {id: "asfd"}
+    var y=Object.create(x);
+    console.log(Object.getPrototypeOf(y));
+    console.log(Object.getPrototypeOf(x));
+    var parent = Object.getPrototypeOf(y);
+    console.log(parent === x); //true
+    console.log(Object.getPrototypeOf(x) === Object.prototype) //true
+
+    function Animal(){
+
+    }
+    var dog = new Animal();
+
+    console.log(Object.getPrototypeOf(dog) === Animal.prototype); //true
+
+    var gr = Object.create(dog);
+    console.log(Object.getPrototypeOf(gr) === dog)
+
+
+    Animal.prototype.id = 10;
+    var dog1 = new Animal();
+    Animal.prototype = {name:"info"}; // breaks the chain. hence use Animal.prototype.name = "info"
+    var dog2 = new Animal();
+    console.log(Object.getPrototypeOf(dog1));
+    console.log(Object.getPrototypeOf(dog2));
+    /*
+    still points to old one and not new one. Why why why
+    Animal.prototype: stores a reference (says #bcde) prototype attribute points to #bcde
+    When you change Animal.prototype to (say #a192) the previous prototype tha was set while dog was
+    created does not change.
+    when you set Animal.prototype = "name" you don't have id there anymore.(it is overwritten). Here a new
+    object is created.
+    The attributes are independent of each other.
+    When you set  Animal.prototype = {name:"info"}; You break the prototypal inheritance.
+    Hence always use: Animal.prototype.name = "info"
+     */
+/*
+Font access prototype of an object(it will be undefined). Always access prototype of function.
+for objects, use Object.getPrototypeOf();
+
+ To get constructor:
+ console.log(Dog.constructor);
+
+ It doesnt work with Object.create (unless it goes up to prototypal chain)
+ */
+</script>
+
+</body>
+</html>

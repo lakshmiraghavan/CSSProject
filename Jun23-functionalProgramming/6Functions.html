@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var x=10;
+
+    function test(){
+        var x;
+     //   console.log(x); //undefined -> variable hoisting
+        /*
+        ECMAScript5: no block scoping for variables
+        {
+        x=18 willnot work
+        }
+
+         */
+        console.log(x)
+        var x= 12;
+        console.log(x)
+        console.log(square(x));
+        function square(z){
+            return z*z;
+        }
+    }
+    test()
+
+    function test2(){
+        y=15; //Implicit variable declaration
+        //global scope - global object
+    }
+    test2();
+    console.log(window.y) // 15
+
+
+
+</script>
+</body>
+</html>

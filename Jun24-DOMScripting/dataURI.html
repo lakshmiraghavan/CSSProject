@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    /*
+     data URI
+     If you have a source to pick up from, use change it to DataURI.
+     It stops extra getRequest made to the server
+
+
+     */
+    var hyper = document.createElement("a");
+    hyper.href  = "http://www.google.com";
+    // hyper.setAttribute("href","http://www.google.com")
+    hyper.innerHTML = "Link to google";
+    document.body.appendChild(hyper);
+
+
+    String.prototype.myCreateLink = function(){
+        var link = document.createElement("a");
+        link.href = this;
+        link.innerHTML = this;
+        return link;
+    };
+/*
+Data URI
+How to get user to download a json file? mime type, data in there
+
+ */
+</script>
+<script>
+    var hyper = document.createElement("a");
+    hyper.href  = "http://www.google.com";
+    // hyper.setAttribute("href","http://www.google.com")
+    hyper.innerHTML = "Link to google";
+    document.body.appendChild(hyper);
+    /*
+     btoa
+     atob
+     */
+</script>
+<a href="data:text/plain;ascii,Hello World" download="data.txt">Download</a>
+
+</body>
+</html>

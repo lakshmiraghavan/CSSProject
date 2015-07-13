@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <style>
+      div{
+          height:100px;
+          width:100px
+      }
+    </style>
+    </head>
+<body>
+<div id="mousePos" ></div>
+<script>
+    document.addEventListener('click',function(e){
+        var s = 'X=' + e.clientX +  ' Y=' + e.clientY ;
+        var p = 'X=' + e.pageX +  ' Y=' + e.pageY ;
+        console.log("viewport",s);
+        console.log("page", p);
+    })
+
+</script>
+</body></html>

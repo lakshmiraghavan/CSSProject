@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var x = {
+        id:22,
+        _info: "yeyeye",
+        sayHello: function(){
+            console.log("hello world");
+        },
+        get info(){
+            console.log("asdf");
+            return _info;
+
+        },
+        set info(val){
+            this._info = val;
+        }
+    }
+
+    x.sayHello();
+    x.info = "yooo"
+    var info = x.info;
+
+    console.log(x._info);
+
+    /*
+    getters and setters  put a layer around access of private variable
+
+    for (var prop in x){
+    console.log(prop)
+    }
+
+    var y = Object.create(x);
+    y.type = "child";
+    to enumerate only own properties:
+    //old way
+    for(var prop in y){
+    if(y.hasOwnProperty(prop))
+    console.log(prop)
+    }
+
+    you can also do getOwnPropertyNames and enumerate over it.
+
+    Or use Object.keys// for own enumerableproperties
+
+    Object.keys(y).forEach(function(elem){
+    console.log(elem,":",y[elem]);
+    });
+     */
+
+  /*
+  if you don't want to show properties in a loop: property attributes
+   */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font: 300 1em 'Helvetica Neue';
+        }
+        ul.first, ul.second {
+            padding: 1em;
+            list-style-type: none;
+            border: 1px solid black;
+        }
+        ul.first > li, ul.second > li {
+            background-color: red;
+            width: 2em;
+            color: white;
+            text-align: center;
+            border: 1px solid darkred;
+            line-height: 2em;
+        }
+        ul.first > li {
+            display: inline-block;
+        }
+        ul.second > li {
+            float: left;
+        }
+        ul.second > li.no-float {
+            float: none;
+            width: auto;
+            clear: left;
+        }
+        ul.second > li.float {
+            font-size: 3em;
+            background-color: rgba(139, 0, 0, 0.39);
+        }
+
+
+
+        /*Line height: */
+        /*
+       difference between floats and inline block:
+       1. spacing (not content spaces for float). To remove spaces, align them next to each other
+       <li> </li> <li> </li>
+       2.Collapse issue with floats. // css tricks the great collapse
+         - Apply extra element: with no float and border none and no content: Not recommended
+         -clearfix: Using css3 pseudo element (not shown in DOM). IT should be a block element,
+          clearfix:: after {apply a pseudo child at the end of the parent, which is display:none;
+          content: '', clear:both;
+          }
+        */
+
+        /* Difference between floats and inline-blocks
+        1. Spacing issue with inline-blocks
+        2. Collapse issue with floats
+           Solution to this is known as the "clearfix"
+        https://css-tricks.com/all-about-floats/
+        */
+        /* CSS3 Pseudo-Elements Approach */
+        /*
+            block, clear, content: ''
+        */
+        .clearfix::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<ul class="first">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+<ul class="second">
+    <li class="float">1</li>
+    <li class="float">2</li>
+    <li class="float">3</li>
+    <li class="no-float">I do not have a float!</li>
+</ul>
+
+<ul class="second clearfix">
+    <li class="float">1</li>
+    <li class="float">2</li>
+    <li class="float">3</li>
+</ul>
+
+
+<script>
+        /*Since this has height and width, parent treats only this one as its child.
+        Both 4 th child and parent does not know about 1,2,3 and they are out of normal flow
+
+        */
+    </script>
+
+
+</body>
+</html>

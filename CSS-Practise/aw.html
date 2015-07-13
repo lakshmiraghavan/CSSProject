@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Awwwards Example</title>
+    <style>
+
+        div.square{
+            background-color:#df6c4f;
+            height:25vh;
+            width:25vh;
+            border-radius: 50%;
+            opacity: .5;
+            margin:1em;
+            overflow: hidden;
+            position:relative;
+        }
+
+
+        div.square2{
+            background-color:#e1e3e4;
+            height:80%;
+            width:80%;
+            border-radius: 50%;
+            margin: 10% auto;
+            z-index: 10000;
+            position:absolute;
+            left:10%;
+
+        }
+        div.quad1{
+            height: 25vh;
+            width:70%;
+            background-color:red;
+            position:absolute;
+            left:50%;
+        }
+        div.quad2{
+            height: 25vh;
+            width:70%;
+            background-color:red;
+            position:absolute;
+            left:50%;
+            transform-origin:0% 50%;
+            transform: rotateZ(45deg);
+        }
+
+
+    </style>
+</head>
+<body>
+<header></header>
+
+<section class="content">
+
+    <div class ="square">
+
+        <div class="quad1">
+
+        </div>
+        <div class="quad2">
+
+        </div>
+        <div class="square2">
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

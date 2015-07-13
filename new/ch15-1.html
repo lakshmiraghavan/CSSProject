@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        function GetSelected () {
+            var select = document.getElementById ("mySelect");
+            var txt = "";
+            for (var i = 0; i < select.options.length; i++) {
+                var isSelected = select.options[i].selected;
+                isSelected = (isSelected)? "selected" : "not selected";
+                txt += "The " + i + " option is " + isSelected + "\n";
+            }
+            console.log (txt);
+        }
+    </script>
+</head>
+<body>
+<div id="example-one" contenteditable="true">help</div>
+<select id="mySelect" size="3" multiple="multiple">
+    <option value="Apple" selected="selected" />Apple
+    <option value="Pear" />Pear
+    <option value="Peach" selected="selected" />Peach
+</select>
+
+<button onclick="GetSelected ();">Get the selected options!</button>
+</body>
+</html>

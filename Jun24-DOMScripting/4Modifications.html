@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{padding:1em;
+            border: 1px solid green;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+        var newDiv = document.createElement("div");
+            newDiv.innerHTML = "New Div Element";
+        document.body.firstElementChild.firstElementChild.appendChild(newDiv);
+
+           var parentElement = document.querySelector("#firstDiv");
+            var referenceElement = document.querySelector("#secondDiv")
+
+            var insertedElement = parentElement.insertBefore(newDiv, referenceElement);
+            insertedElement.innerHTML ="inserted before second div";
+        });
+    </script>
+</head>
+<body>
+
+<div id="firstDiv">
+    First Div
+    <div id="secondDiv">
+        Second Div
+        <div>
+            third Div
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

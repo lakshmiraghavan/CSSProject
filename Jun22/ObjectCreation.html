@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    While using constructor: use capital
+
+    This is multilevel inheritance
+     */
+
+    function Animal(){
+
+    }
+    Animal.prototype.eat = function(){
+        console.log('eating now ..')
+    }
+    function Dog(){
+
+    }
+    Dog.prototype = new Animal();
+    Dog.prototype.construtor = Dog; // previously pointing to animal
+    Dog.prototype.bark  = function(){
+        console.log("woof")
+    }
+    /*
+    unlike in java where dog is created using dog constructor.U can create dog using animal constructor
+     */
+
+   var poodle = new Dog();
+    poodle.bark();
+    console.log(poodle.constructor) //Dog()
+
+    //Object.create mimic
+
+    var x = {type: "of type x"};
+    function objectCreate(obj) {
+        if (typeof obj == "object" || typeof  obj == "function") {
+            function F() {
+                //
+            };
+            F.prototype = obj;
+            return new F();
+
+        }
+    }
+
+    var y = objectCreate(x);
+    console.log(y);
+    x.type ="changed to something else"
+    console.log(y.type);//changed to something else
+    console.log(y.constructor) // Object. this is because Y has no constructor property.
+    // x also has no constructor property as it is created using literal.
+    /*
+    var x = {}
+    same as new Object();
+    parent -> Object.prototype. and constructor is Object.
+    */
+/*
+Objects created by constructor dont have prototype eg. y.prototype = undefined.
+Functions have prototype property
+ */
+    console.log(Object.getPrototypeOf(x));
+
+</script>
+
+</body>
+</html>

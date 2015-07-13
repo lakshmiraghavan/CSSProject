@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+        .user{
+            height:100px;
+            width:100px;
+        }
+    </style>
+    <title></title>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+        var div = document.querySelector(".user"); //querySelectorAll
+            console.log(div);
+            div.style.backgroundColor ="green";
+
+            var mail_imp = document.querySelector('[name="email"]');
+            console.log(mail_imp)
+            mail_imp.style.backgroundColor ="red";
+
+            //=== traverse down
+            document.getElementById("ancestor").firstElementChild.firstElementChild.innerHTML = "descendant";
+            document.getElementById("ancestor").firstElementChild.lastElementChild.innerHTML = "last descendent";
+
+            //traverse up
+            console.log(document.getElementById("ancestor").parentNode); //body
+
+
+
+        });
+    </script>
+</head>
+<body>
+<div class="user" ></div>
+<div class="user" name="email"></div>
+<div id="ancestor">
+    <div>
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

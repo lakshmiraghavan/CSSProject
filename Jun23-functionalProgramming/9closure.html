@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //Closure: function object + scope that was in effect when the function was defined.
+    function createClosure(){
+        var x=10;
+        return function(){
+            //scope that was in effect
+            return x;
+        }
+
+    }
+    var fn =createClosure();
+    console.log(fn());
+
+    //console.log(x); //reference error
+
+    //=======
+       /*
+            All functions are technically closures. function object, and scope that was
+            in effect when function was created
+             */
+
+
+</script>
+
+</body>
+</html>

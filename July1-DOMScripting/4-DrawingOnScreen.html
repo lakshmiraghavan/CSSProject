@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Draw</title>
+    <style>
+    html,body{
+        height: 100%;
+    }
+     div.rec{
+         background-color: rgba(255, 0, 0, 0.51);
+         position: absolute;
+         border: 1px solid darkred;
+     }
+
+    </style>
+</head>
+<body>
+
+<script>
+    function Position(x,y){
+        this.pos =[x,y];
+    }
+    Position.prototype.x = function(){return this.pos[0];};
+    Object.defineProperty(Position.prototype,'x',{
+        get:function(){
+            return this.pos[0];
+        }
+    })
+
+    Position.prototype.y = function(){return this.pos[1];};
+    Object.defineProperty(Position.prototype,'y',{
+        get:function(){
+            return this.pos[1];
+        }
+    })
+
+    var rec;
+
+
+        document.body.addEventListener('mousedown', function (event) {
+            var position = new Position(event.pageX, event.pageY);
+
+            rec = createElement('div', document.body, 'rec');
+            rec.top_left_corner = position;
+            rec.style.left = position.x + 'px';
+            rec.style.top = position.y + 'px';
+            rec.style.backgroundColor = 'red';
+            document.body.appendChild(rec);
+
+            document.body.addEventListener('mousemove', mouseMoveHandler);
+            //this refers to document.body
+
+            })
+
+
+
+    document.body.addEventListener('mouseup', function () {
+        rec = null;
+        document.body.removeEventListener('mousemove', mouseMoveHandler);
+
+        /*
+         deregister events:removeEventListener
+         */
+    });
+
+    function mouseMoveHandler(e){
+        var top_left_corner = rec.top_left_corner;
+        rec.style.width = (e.pageX - top_left_corner.x) + 'px';
+        rec.style.height = (e.pageY - top_left_corner.y) + 'px';
+
+    }
+
+    function createElement(elementType, parent, className, innerHTML, custom) {
+        var element = document.createElement(elementType);
+        if (parent) parent.appendChild(element);
+        if (className) element.className = className;
+        if (innerHTML) element.innerHTML = innerHTML;
+        if (typeof custom !== 'undefined') {
+            for (var prop in custom) {
+                element.setAttribute(prop, custom[prop]);
+            }
+        }
+        return element;
+    }
+
+
+
+    /*
+    chapter 15,chapter 17
+    13.3.4
+     */
+</script>
+
+</body>
+</html>

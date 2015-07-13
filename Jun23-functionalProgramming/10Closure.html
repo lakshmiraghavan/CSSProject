@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function createClosure(){
+        var x= 10;
+
+        return function(){
+            return x++;
+        }
+    }
+    var fnx = createClosure(); //copy of x
+    var fny = createClosure(); // copy of x
+    // none have original
+
+    fnx() //10
+    fny() //10
+    fnx // 11
+</script>
+
+</body>
+</html>

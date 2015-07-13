@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //this keyword
+
+    function test(){
+        name:"Lakshmi"
+        //invocation context for a global function = global object (window in this case)
+        console.log(this) //Window object
+    }
+    test()
+
+    var obj = {
+        printContext: function(){
+            //Invocation context for any method is the object that owns the method
+            console.log(this === obj);
+
+            function someFunc(){ // function standalone,nested in a method
+                //invocation context is global object (window int his case)
+                console.log(this)
+            }
+            someFunc()
+        }
+    };
+    obj.printContext()
+
+    var context = (function sayHello(){//access global object for any execution context
+        //iife: context is global object.
+        console.log("hello");
+        return this;
+    }());
+    console.log(context)
+
+    function sayHello({
+            console.log("hello from", this.name);
+            })
+    window.name = "Amy";
+    sayHello();
+    sayHello.call(obj)
+    //Change the execution context
+
+    test.call(obj)
+    //call can be used on objects and methods as well
+    /*
+    Call takes the following parameters: this, parameter1, parameter2 etc
+     */
+
+
+</script>
+
+</body>
+</html>

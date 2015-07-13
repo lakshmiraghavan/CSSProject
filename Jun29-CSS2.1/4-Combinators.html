@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-weight: 300;
+            font-size: 1em;
+            font-family: 'Helvetica Neue', 'Segoe UI', 'Droid Sans', 'sans-serif';
+            color: white;
+        }
+        header {
+            background-color: #222;
+            padding: 1em;
+        }
+        p { /* 0 0 0 1 */
+            margin: 1em;
+            background-color: red;
+            padding: 1em;
+        }
+        /* Combinators do not affect specificity */
+        /* Child combinator --> > */
+        article > p { /* 0 0 0 2 */
+            background-color: darkred;
+        }
+        /* Descendant Combinator --> " " */
+        article p {
+            background-color: green;
+        }
+        /* Adjacent Sibling Selector */
+        header + p {
+            background-color: blue;
+        }
+        /* Grouping Selector */
+        aside, p {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <article>
+        <header>
+            <h1>Machine Learning for Businesses</h1>
+        </header>
+        <p>
+            Beginning with Linear Algebra, ....
+        </p>
+        <p>
+            Beginning neural networks ...
+        </p>
+    </article>
+    <aside>
+        <a href="http://www.google.com">Link for more ... </a>
+    </aside>
+</section>
+
+</body>
+</html>

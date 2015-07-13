@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        button {
+            padding: 0.35em 0.5em;
+            background-color: red;
+            color: white;
+            border: 1px solid darkred;
+            font: 300 1em "Helvetica Neue"; /* 1em is the default value either browser value or set value*/
+            cursor:pointer ;
+        }
+        .myClass {
+            font-size: 2em; /* 16px , 1 em is the same. Is not required*/
+            /* by default padding is 16 px. When font size increases passing increases to 32 px*
+            So margin and padding also increases
+            */
+        }
+        div{
+            font-size: 2em;
+            /*
+            font size is inherited. and padding and margin works on this font size.
+            So the button below will increase beyond 2em (its default to accomodate div  (16*4 px)).
+            It basically cascades down
+            */
+        }
+
+            div> button{
+                font-size: 2em; /*64px*/
+            }
+
+
+    </style>
+</head>
+<body>
+<script>
+    /*
+    wand m are widest letters. Hence they dictated the height and width of all characters
+    1 em = 16px
+    1 em = 100% of font size of the element you are in(default)
+    em is used by default. When you change font size they automatically recalculate and adjust
+    Also adjusts to browser differences as it keeps the ratio
+     */
+</script>
+
+<button>
+    Click Me
+</button>
+<button class="myClass">
+    Click Me
+</button>
+<div>
+    <button id ="myButton">
+
+    </button>
+</div>
+</body>
+</html>

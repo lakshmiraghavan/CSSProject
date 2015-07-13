@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    Regular Expressions
+     */
+
+    var re =/[a-z]/;
+
+    var regex = new RegExp("^[a-z]$", "gmi");
+
+    //RegExp.prototype is the parent of regex
+
+    console.log(re.test("A")); //false
+    console.log(re.test("abcd"));
+    var re =/[a-z]$/i; //case insensitive
+    console.log(re.test("abcd"));
+    console.log(re.test("A")); //true
+
+    //Matching
+    var str = "wjrkwej1jhwjfhif34345jl34";
+    console.log(str.match(/[0-9]+/g));//all chunks of numbers
+
+    //========
+
+    console.log(typeof str);
+    console.log(str.substring(0,3)) // str -> Temporary Object -> toString ->discrards object
+
+
+    var strx = new String("asdf");
+    console.log(typeof strx)
+
+    console.log("abcd".substr(0,2))
+  //  console.log(5.toString()); //Error because of confusion between decimal and dot operator
+    console.log("5".toString(2));
+    /*
+    String.prototype
+    Number.prototype -> parseInt, parseFloat, toString
+     */
+
+</script>
+</body>
+</html>

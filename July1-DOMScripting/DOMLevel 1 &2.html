@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM level 1 and DOM level 2</title>
+    <link rel="stylesheet" href="base.css"/>
+</head>
+<body>
+<button>Click</button>
+<script>
+    var button = document.body.firstElementChild;
+    /*DOM Level 1*/
+    button.onclick = function(e){
+        console.log("event handler for click 1",e);
+    };
+
+    button.onclick = function(e){
+        console.log("event handler for click 1",e);
+
+        /*you get only click 2. click1 gets lost. Hence we moved to DOM 2. Multiple event handlers
+        cant be used unless you use an array of functions and add to the array*/
+    };
+
+    document.addEventListener('click',function(e){
+        console.log("event handler for click 1",e);
+    })
+    document.addEventListener('click',function(e){
+        console.log("event handler for click 2",e);
+    })
+</script>
+</body>
+</html>

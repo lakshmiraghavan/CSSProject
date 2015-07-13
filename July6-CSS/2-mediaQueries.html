@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        html,body{
+            height:100%;
+            margin:0;
+            transition: all 1000ms ease;
+            color:white;
+        }
+        /*
+              100% + padding : causes scroll
+                */
+
+        @media screen and (max-device-width: 400px) {
+            body{
+                background-color: green;
+            }
+
+        @media screen and (max-device-width:600px){
+            /* to fix: min-device-width:600px and max-device-width:400px*/
+            body{
+                background-color: red;
+            }
+        }
+
+        }
+
+
+    /*
+    two media queries relevant to object, both get applied, and normal cascading rules apply.
+    ie: last one takes precedence.
+    to fix: min-device-width:600px and max-device-width:400px
+    */
+        /*
+        also look up resolution and device aspect ratio
+        */
+        /*
+        meta tags: view port: 'virtual view port" content width
+        https://css-tricks.com/snippets/html/responsive-meta-tag/
+        meta name view-port tag: virtual pixels important interview question
+        */
+
+    </style>
+    <script>
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

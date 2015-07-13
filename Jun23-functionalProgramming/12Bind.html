@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sayHello(name){
+        console.log("hi, this is ", name, "!");
+
+    }
+    var arr = [sayHello, sayHello, sayHello];
+
+    var arr_bound_functions = ["Alx","Amy","Charles"].map(function(name){
+       return sayHello.bind(null, name); //sayHello
+    })
+
+    console.log(arr_bound_functions);
+
+    function invoker(arr){
+        //any number of functions
+        // prints "invoking function 1-> nameof function"
+
+        arr.forEach(function(fn){
+            fn();
+        });
+    }
+invoker(arr_bound_functions);
+
+    ///use bind when you need to invoke it later.
+</script>
+
+</body>
+</html>

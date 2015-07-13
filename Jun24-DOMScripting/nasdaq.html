@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var collection = document.querySelectorAll("#CompanylistResults > tbody > tr");
+    //console.log(collection);
+
+    var arr = Array.prototype.slice.call(collection);
+    //console.log(arr)
+    var newArr = arr.filter(function(element, index){
+        return index % 2 == 0;
+    })
+
+    //console.log(newArr);
+
+    var content = newArr.map(function(element, index){
+        return element.firstElementChild.textContent.trim();
+    })
+
+    console.log(content);
+
+
+
+</script>
+</body>
+</html>

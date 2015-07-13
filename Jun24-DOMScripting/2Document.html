@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    Node: Parent Element
+    DOM structure is part of the rendering engine(no javascript)
+    Understand th herarchy
+     */
+    document.addEventListener("DOMContentLoaded", function(){
+        var lis = document.getElementsByTagName("li");
+        var ul = document.getElementsByTagName("ul")[0];
+
+        console.log("child-nodes",ul.childNodes);
+        console.log("children",ul.children);
+        console.log("li", lis)
+
+        function getChildren(node){
+            //Uses only node API
+            // print an array of elements
+            var arr = [];
+            var nodeList = node.childNodes;
+            for (var i = 0; i < nodeList.length; i++){
+                if( nodeList[i].nodeType === 1){
+                    arr.push(nodeList[i]);
+                }
+            }
+            return arr;
+        }
+
+        console.log(getChildren(ul));
+
+        function getChildren2(node){
+            return Array.prototype.filter.call(node.childNodes, function(){
+                return node.nodeType === 1; // for text node, use 3
+            })
+        }
+    })
+  /*
+  DOM API: selection, traversal, modification
+
+  Selection: tagName, ClassName, Name,
+   */
+
+</script>
+<ul>
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+</ul>
+</body>
+</html>

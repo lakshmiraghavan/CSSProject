@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="base.css"/>
+    <style>
+        div, div.move {
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            margin: 1em;
+        }
+        div:hover {
+            background-color: green;
+            transition: background-color 500ms ease 1s; /* MDN w3schools */
+            /*to use transition on all properties: use a;;*/
+        }
+        div.move {
+            position: absolute;
+            left: 50px;
+            transition: left 1000ms ease; /*transition works for checked and unchecked*/
+        }
+        /* CSS3 :checked */
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"] + label {
+            background-color: red;
+        }
+        input[type="checkbox"]:checked + label {
+             background-color: green;
+         }
+        input[type="checkbox"]:checked + label + .move{
+            left:1000px;
+        }
+
+    </style>
+</head>
+<body>
+<label for="move">Moving?</label>
+
+<div>
+
+</div>
+
+<button>Move</button>
+<input type="checkbox" id="move"/>
+<label for="move">Moving?</label>
+<div class="move"></div>
+
+<script>
+    /*
+    Media Queries
+    meta viewport
+    selectors: pseudo -classes, pseudo-elements
+    transitions, animations, transforms
+     */
+</script>
+
+
+</body>
+</html>

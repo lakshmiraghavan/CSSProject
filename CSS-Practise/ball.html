@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div.container {
+            height: 600px;
+            width: 970px;
+            border: 1px solid #aaa;
+            margin: 2em auto;
+
+            position: relative;
+        }
+        div#ball {
+            background-color: #aaa;
+            height: 75px;
+            width: 75px;
+            border-radius: 100%;
+            top: 5px;
+            left: 5px;
+
+            position: absolute;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container" id="ballContainer">
+    <div id="ball"></div>
+</div>
+
+<script>
+
+    var ball = document.getElementById('ball');
+    var ballContainer = document.getElementById('ballContainer');
+
+    ball.addEventListener('click', function() {
+        var currBall = this, top = 5;
+        var dropCount = 5;
+
+        var countArr = [0,520,840,1160,1380,1600,1720,1840,1910,1980];  // ball move count at each new drop down or bounce up points
+
+
+        // ???WHY can I not see the changes on ball.style.top inside of a for loop or a while loop???
+        var timeBallDrop =  setInterval(function () {
+            if( dropCount >= countArr[0] && dropCount < countArr[1]) {
+                ('inside move down 1 at: ' + countArr[0]);
+                ball.style.top = top++ + 'px';
+                dropCount++;
+            }
+            else if( dropCount >= countArr[1] && dropCount < countArr[2]) {
+                console.log('inside move up 1 at: ' + countArr[1]);
+                ball.style.top = top-- + 'px';
+                dropCount++;
+            }
+            else if(dropCount >= countArr[2] && dropCount < countArr[3]){
+                console.log('inside drop down 2 at: ' + countArr[2]);
+                ball.style.top = top++ + 'px';
+                dropCount++;
+            }
+            else if (dropCount >= countArr[3] && dropCount < countArr[4]) {
+                console.log('inside move up 2 at: ' + countArr[3]);
+                ball.style.top = top-- + 'px';
+                dropCount++;
+            }
+            else if(dropCount >= countArr[4] && dropCount < countArr[5]){
+                console.log('inside drop down 3 at: ' + countArr[4]);
+                ball.style.top = top++ + 'px';
+                dropCount++;
+            }
+            else if (dropCount >= countArr[5] && dropCount < countArr[6]) {
+                console.log('inside move up 2 at: ' + countArr[5]);
+                ball.style.top = top-- + 'px';
+                dropCount++;
+            }
+            else if(dropCount >= countArr[6] && dropCount < countArr[7]){
+                console.log('inside drop down 3 at: ' + countArr[6]);
+                ball.style.top = top++ + 'px';
+                dropCount++;
+            }
+            else if (dropCount >= countArr[7] && dropCount < countArr[8]) {
+                console.log('inside move up 3 at: ' + countArr[7]);
+                ball.style.top = top-- + 'px';
+                dropCount++;
+            }
+            else if (dropCount >= countArr[8] && dropCount < countArr[9]) {
+                console.log('indie drop down 4: ' + countArr[8]);
+                ball.style.top = top++ + 'px';
+                dropCount++;
+            }
+            else if(dropCount === countArr[9]) {
+                console.log('THIS SHOULD BE THE LAST drop count!!!');
+                console.log('inside move up 4 at: ' + countArr[9]);
+                clearInterval(timeBallDrop);
+
+            }
+            else {
+                console.log('what happened here?  ' + dropCount);
+                //clearInterval(this);
+            }
+
+        },1);
+        //clearInterval(timeBallDrop)
+
+        // reffering to ball element
+    });
+
+
+
+
+    /*function getMaxDrop () {
+     var maxHeight = this.style.height;
+     return maxHeight;
+     }
+     */
+
+</script>
+
+</body>
+</html>

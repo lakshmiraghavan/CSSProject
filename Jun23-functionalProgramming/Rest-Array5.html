@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="info.js"></script>
+    <title></title>
+</head>
+<body>
+<script>
+    console.log(countries[0])
+    //Total pupulation,
+    console.log(countries[0].population)
+   var population =  countries.reduce(function(total,country){
+        return total + country.population;
+    },0)
+    console.log(population);
+
+    //Countries with less than two neighbours
+
+    var lessThanTwoNeighbours = counter.filter(function(country){
+        return country.border.length < 2;
+    })
+    console.log(lessThanTwoNeighbours)
+</script>
+
+</body>
+</html>

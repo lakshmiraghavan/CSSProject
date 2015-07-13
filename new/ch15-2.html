@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test</title></head>
+<body width="10px" backgroundColor="red" onload="hi">Hello World!
+<span class="sparkline" data-ymin="0" data-ymax="10">
+1 1 1 2 2 3 4 5 5 4 3 5 6 7 7 4 2 1
+</span>
+<image width="100px" src="google.com"></image>
+<img id="myimage" src="google/ulrhttps://www.bing.com/images/search?q=Minka+Kelly&FORM=ISTRTH&id=357E76AFECD35CF0F399B0DCF062E99C7AF7493C&cat=Popular%20people%20searches&lpversion=">
+<div>
+    <div>
+        <div id ="three"></div>
+    </div>
+</div>
+<script>
+    console.log(document.body.attributes[1]); // The first attribute of the <body> elt
+    console.log(document.body.attributes.backgroundColor) // The bgcolor attribute of the <body> elt
+    console.log(document.body.attributes["ONLOAD"]) // The onload attribute of the <body> elt
+
+
+    var sparklines = document.getElementsByClassName("sparkline");
+    ;
+    for(var i = 0; i < sparklines.length; i++) {
+        var dataset = sparklines[i].dataset;
+        var ymin = parseFloat(dataset.ymin);
+        var ymax = parseFloat(dataset.ymax);
+        var data = sparklines[i].textContent.split(" ").map(parseFloat);
+        console.log(data);
+       // drawSparkline(sparklines[i], ymin, ymax, data); // Not yet implemented
+      }
+
+
+    var image = document.images[0];
+    var width = parseInt(image.getAttribute("WIDTH"));
+    image.setAttribute("class", "thumbnail");
+    console.log(image.getAttribute('class'));
+    console.log(width);
+    var image1 = document.getElementById('myimage');
+    console.log(image1.src)
+    console.log(image1.id === 'myimage');
+    //get nth parent
+    function getParent(e,n){
+        if(!e || e.nodeType !== 1) return null;
+        if(n === undefined) n=1;
+        while(n-- && e) e= e.parentNode;
+        return e;
+
+    }
+</script>
+</body>
+</html>

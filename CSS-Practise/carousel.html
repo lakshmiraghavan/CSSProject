@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/open-sans-fontface/open-sans.css"/>
+    <style>
+        body {
+            font: 300 1em 'Open Sans';
+            margin: 0 auto;
+        }
+        div#sliderContainer{
+            height: 200px;
+            width: 400px;
+            float: left;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /*position: relative;*/
+        }
+
+        li {
+            height: 200px;
+            width: 400px;
+            font-size: 2em;
+            margin: 0;
+            padding: 0;
+            float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        li:nth-child(2n){
+            background-color: #75B08A;
+        }
+        li:nth-child(2n+1){
+            background-color: #F0E797;
+        }
+        ul {
+            width: 2000px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            /*position: absolute;*/
+        }
+
+        .arrow {
+            padding: 0 0.3em;
+            display: flex;
+            max-width: 1em;
+            height: 200px;
+            align-items: center;
+            font-family: "Courier New";
+            justify-content: space-around;
+            font-size:  5em;
+            background-color: #22475E;
+            color: #8ba3bc;
+            text-shadow: 1px 1px 1px #092332;
+            cursor: pointer;
+        }
+        .arrow:hover {
+            color: #a4bce3;
+            background-color: #173240;
+            text-shadow: 1px 1px 1px #091522;
+            transition: all 250ms linear;
+        }
+        .carousel {
+            width: 80%;
+            margin: 5em auto;
+            display: flex;
+            justify-content: center
+        }
+    </style>
+    <script>
+
+
+        HTMLElement.prototype.getElementIndex = function (){
+            var child = this;
+            var i = 0;
+            while( (child = child.previousElementSibling) != null )
+                i++;
+            return i;
+
+        };
+
+        document.addEventListener('DOMContentLoaded', function (){
+
+            var slider = document.getElementById('sliderContainer');
+
+            var slideObject = {
+                numberOfSlides: slider.firstElementChild.children.length,
+                currentSlide: 0,
+                _slider: slider,
+                _slidewidth: slider.firstElementChild.firstElementChild.offsetWidth,
+                // set the slider element
+                set slider(element) {
+                    _slider = element;
+                },
+                get slider (){
+                    return _slider;
+                },
+                _intervalid: null,
+                nextSlide: function (){
+                    if (this.currentSlide === (this.numberOfSlides - 1))
+                        return;
+                    var slider = this._slider;
+                    var currentPos = slider.scrollLeft;
+                    var finalPos = ++this.currentSlide * this._slidewidth;
+                    var intervalid = setInterval(function (){
+                        if (currentPos <= finalPos)
+                            slider.scrollLeft = currentPos++;
+                    }, 1);
+                },
+                previousSlide: function (){
+                    if (this.currentSlide === 0)
+                        return;
+                    var slider = this._slider;
+                    var currentPos = slider.scrollLeft;
+                    var finalPos = --this.currentSlide * this._slidewidth;
+                    var intervalid = setInterval(function (){
+                        if (currentPos >= finalPos)
+                            slider.scrollLeft = currentPos--;
+                    }, 1);
+                }
+            };
+
+            slideObject.slider = slider;
+
+            Array.prototype.forEach.call(document.getElementsByClassName('arrow'), function (elem){
+                elem.addEventListener('click', function (event){
+                    if (event.target.getElementIndex()) {
+                        console.log('previous slide');
+                        slideObject.nextSlide();
+                    } else {
+                        console.log('next slide');
+                        slideObject.previousSlide();
+                    }
+                });
+            });
+
+        });
+
+
+
+    </script>
+</head>
+</head>
+<body>
+<div class="carousel">
+    <div class="arrow">&laquo;</div>
+    <div id="sliderContainer">
+        <ul id="slider">
+            <li>Slide 1</li>
+            <li>Slide 2</li>
+            <li>Slide 3</li>
+
+            <li>Slide 4</li>
+
+            <li>Slide 5</li>
+        </ul>
+    </div>
+    <div class="arrow">&raquo;</div>
+</div>
+</body>
+</html>

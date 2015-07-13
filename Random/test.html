@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="file-structure.css"/>
+    <style>
+    </style>
+    <script>
+        function Data() {
+            this.data = [];
+        }
+        Data.prototype.addDocument = function (folder) {
+            var identifier = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                return v.toString(16);
+            });
+        };
+        document.addEventListener('DOMContentLoaded', function () {
+            var ul = document.querySelector('#context-menu');
+            document.querySelector('section.explorer').addEventListener('contextmenu', function fn(event) {
+                event.preventDefault();
+                console.log(event);
+                ul.style.left = event.clientX + 'px';
+                ul.style.top = event.clientY + 'px';
+                ul.style.display = 'block';
+            }, false);
+        });
+    </script>
+</head>
+<body>
+<ul id="context-menu">
+    <li>New Folder</li>
+    <li>New Document</li>
+</ul>
+
+<section class="explorer"></section>
+<section class="document"></section>
+</body>
+</html>

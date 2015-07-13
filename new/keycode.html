@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="textcont">
+    <div>bsdhf
+    <ul>dfhj
+        <li>dsfs</li>djs
+        <ul>sa</ul>
+    <li>sdf</li></ul></div>
+</div>
+
+
+<input id="test" type="text" size="2" maxlength="1";/>
+<script type="text/javascript">
+     var x = document.getElementById("textcont").tagName;
+     console.log(x)
+    var text1 = document.getElementById("textcont").textContent;
+    console.log(text1)
+
+
+    var input  = document.getElementById('test');
+
+    input.addEventListener('keypress', function(e){
+        console.log("Key Pressed: " + e.key + "\n"
+        + "charCode: " + e.charCode);
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>charCode example</title>
+</head>
+
+<body>
+one
+<input id="test1" type="text" size="2" maxlength="1";/>
+<input id= "test" type="text">
+<script type="text/javascript">
+    var input  = document.getElementById('test1');
+    input.addEventListener('keydown', function(e){
+       console.log(e.charCode +" " +e.key);
+
+    })
+
+    var inp=document.getElementById('test');
+    inp.addEventListener("keydown", function(e){
+        if(e.key === ">" || e.key === "<") {
+            e.preventDefault();
+        }
+
+        console.log("Key Pressed: " + e.key + "\n"
+        + "charCode: " + e.charCode);
+    })
+
+
+</script>
+</body>
+</html>

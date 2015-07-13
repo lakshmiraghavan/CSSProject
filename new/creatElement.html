@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>one</li>
+    <li>three</li>
+</ul>
+<script>
+   var li = document.getElementsByTagName("li");
+    console.log(li)
+    var li2 = li[0];
+    var newli = document.createElement("li");
+   newli.className="newElement";
+   newli.innerHTML = "two";
+    li2.appendChild(newli);
+</script>
+</body>
+</html>

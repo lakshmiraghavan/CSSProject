@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            pading:1em;
+            border:1px solid #777;
+        }
+        div.empty{
+            background-color: blue;
+        }
+        li:nth-child(4){/*pseudo class select the 4th li element*/
+            font-size: 2em;
+        }
+        div.row > :nth-child(2){ /*second child of row*/
+            font-size:1.5em
+        }
+        /*
+          div.row > p:nth-child(2){
+        font-size:1.5em
+        }
+        wont work as 2nd child is a div and not a p
+
+
+        */
+        div.row > p:nth-of-type(3){
+            background-color: #ff0000;
+        }
+
+      /*pseudo classes */
+
+
+
+        /*fragment identifier*/
+        #here:target {
+        }
+
+            /*pseudo elements*/
+        div.mydiv::after{
+            content: "this is an pasudo class"
+        }
+        /*
+        useful for putting an icon in front of the file so that it will be on page (but not DOM)
+        */
+       p.lorem::selection{
+          background-color: dimgray;
+           color:white;
+       }
+        p.lorem::-moz-selection{
+            background-color: dimgray;
+            color:white;
+        }
+        p.lorem::first-letter{
+            font-size: 5em;
+            /*display:block wont work here*/
+            padding:1em;
+            border: 1px solid grey;
+            background-color: #2028dc;
+        }
+        p.lorem::first-line{
+            font-size: 2em;
+
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<div class="row">
+    <p>1 para</p>
+    <div>1 div</div>
+    <p>2 para</p>
+    <span>1 span</span>
+    <div></div>
+    <p>3 para</p>
+    <div is="here">    </div>
+    <div></div>
+    <div></div>
+</div>
+<div class="mydiv">
+</div>
+<p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque, nulla id luctus ullamcorper, diam ex dictum massa, a pellentesque est augue id felis. Curabitur mattis nulla eget cursus luctus. Phasellus facilisis sapien id sodales commodo. Vivamus at viverra urna, ac interdum dui. Ut dignissim nunc vel finibus posuere. Phasellus ultricies a quam a tempus. Mauris tristique turpis quis sapien posuere, sit amet sodales diam molestie.
+
+    Nulla gravida quam justo, a ultricies nisi ornare dictum. Nunc vel fermentum tortor. Nam ut vulputate mi, et tempus enim. Ut et aliquam est, eget auctor dolor. Sed eget rutrum nulla. Pellentesque blandit tristique rhoncus. Donec dictum commodo tincidunt. Mauris lobortis, tellus vitae iaculis consequat, sapien mi sollicitudin leo, quis lobortis ante libero a ex.
+
+    Donec quis porta est. Praesent id turpis vitae sapien mollis tempor. Integer egestas suscipit varius. Vivamus tempor, leo facilisis scelerisque ullamcorper, mi quam facilisis ligula, vitae ultricies justo nisl ac mauris. Curabitur fringilla sollicitudin purus. Nullam nec porta velit, sit amet porta mauris. Donec posuere ultrices nisl sed rhoncus. Vestibulum finibus at diam tempus facilisis. Duis tellus nisi, eleifend vel semper at, consequat quis lacus. Morbi aliquet ultricies purus, in tempor nisl feugiat non. Maecenas facilisis molestie nulla ut aliquam. Mauris ligula ex, luctus eu velit et, laoreet suscipit lorem. Integer lectus sapien, maximus et blandit non, bibendum ac ante. In at porta augue. Morbi molestie volutpat pulvinar.
+
+    Duis venenatis nulla ac eros pretium cursus. Aenean libero leo, porttitor a enim quis, porta venenatis ex. Aliquam neque neque, ullamcorper at dolor vel, tristique sagittis felis. Maecenas rhoncus orci egestas sollicitudin tempor. Proin in fringilla dui. Donec imperdiet et nunc non hendrerit. Nulla vel lorem vitae nisi aliquam vulputate a varius justo. Aliquam pulvinar nisl vitae iaculis pharetra. Etiam dignissim lacinia egestas.</p>
+<script>
+    console.log("inner html",document.querySelector('.mydiv').innerHTML)
+</script>
+
+</body>
+</html>

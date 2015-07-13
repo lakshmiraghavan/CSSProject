@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //console.log(Number.parseInt("FXX123", 16))
+    // console.log(Number.parseInt("1010", 2));
+
+
+ //   console.log(Number.parseFloat("3.14"));
+ //   console.log(Number.parseFloat("3.14more non-digit characters"));
+ //   console.log(Number.parseFloat("314e-2"))
+ //   console.log(Number.parseFloat("0.0314E+2"))
+
+    var count = 10;
+
+    //console.log(count.toString());    // displays '10'
+    //console.log((17).toString());     // displays '17'
+
+    var x = 6;
+
+    //console.log(x.toString(2));       // displays '110'
+   // console.log((254).toString(16));  // displays 'fe'
+   // console.log((10).toString(2))//1010
+
+    var numObj = new Number(10);
+  //  console.log(typeof numObj) //object
+
+    var num = numObj.valueOf();
+ //   console.log(num) //10
+ //   console.log(typeof  num); //number
+
+   console.log(numObj.toSource())
+    console.log(num.toSource())
+
+    function Number(n) {
+      //  [native code]
+    }
+    console.log(Number.toSource())
+
+    console.log(new Number().toSource());
+
+
+    function Dog(name, breed, color, sex) {
+        this.name = name;
+        this.breed = breed;
+        this.color = color;
+        this.sex = sex;
+    }
+
+    theDog = new Dog('Gabby', 'Lab', 'chocolate', 'female');
+    console.log(theDog.toSource())
+
+    //
+    var numObj = 5.123456;
+
+    console.log(numObj.toPrecision());    // logs 5.123456
+    console.log(numObj.toPrecision(5));   // logs 5.1235
+    console.log(numObj.toPrecision(2));   // logs 5.1
+    console.log(numObj.toPrecision(1));   // logs 5
+//
+
+    var numObj = 12345.6789;
+    console.log(numObj.toFixed(1))
+
+    var numObj = 77.1234;
+
+    console.log(numObj.toExponential());  // logs 7.71234e+1
+    console.log(numObj.toExponential(4)); // logs 7.7123e+1
+    console.log(numObj.toExponential(2)); // logs 7.71e+1
+    console.log(77.1234.toExponential()); // logs 7.71234e+1
+    console.log(77 .toExponential());     // logs 7.7e+1
+
+</script>
+</body>
+</html>

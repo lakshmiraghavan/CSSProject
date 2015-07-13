@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function test(x){
+        console.log("value is", x)
+    }
+
+    function invoke(fn){
+        //passing  ina  function as a parameter
+        //takes function as an input and invokes it
+        fn(63) //callback
+    }
+    invoke(test)
+
+    var numbers = [1,2,3,4,5]
+   //console.log(Object.getOwnPropertyNames(Array.prototype))
+    var keys = Object.getOwnPropertyNames(Array.prototype);
+    console.log(keys);
+
+
+    function printMethodNames(obj){
+      var names =  Object.getOwnPropertyNames(obj);
+        var methods = []
+        console.log("keys", names)
+        for(var i = 0; i<names.length; i++){
+            var prop = names[i];
+         //   console.log("prop name: ", prop,"| typeof property: ", typeof obj[prop]);
+            if(typeof obj[prop] === "function") {
+               methods.push(prop);
+            }
+        }
+        console.log(methods);
+        return methods;
+    }
+//  console.log(printMethodNames(Array.prototype))
+
+ /*    numbers.Map(function(element,index){
+         return
+     })*/
+
+    var numbers = [1,2,3,4,5];
+
+    var events = numbers.filter(function(element, index, array){
+        console.log("element:" + element, "index: " + index, "array: "+array)
+        return element % 2 === 0;
+    })
+
+    console.log(events)
+/*
+javascript arrays are amorphous
+ */
+
+    var arr = [{name:"lakshmi"},{id:"xyz"}, {name:"lakshmi"}, {id:"xyz"},{name:"lakshmi"}]
+
+    //dont compare undefiend to undefined. compare using !== undefined.
+ /*   console.log(arr.filter(function(){
+        return typeof obj["id"] !== undefined;
+    }))*/
+
+    function getMethods(obj){
+        return Object.getOwnPropertyNames(obj).filter(function(element,index,array){
+            return (typeof obj[element] === "function");
+        });
+    }
+    console.log(getMethods(Array.prototype))
+
+    var numbers = [1,2,3,4]
+
+   var cubes = numbers.map(function(element, index, array){
+        return element*element*element;
+    })
+    console.log(cubes)
+    /*
+    filter returns boolean
+    map transforms // can behave like filter but not desgned for it
+     */
+
+    function getPropertiesAndMethodValues(obj){
+
+     return Object.getOwnPropertyNames(obj).map(function(element){
+         return obj[element];
+      })
+
+    }
+    console.log(getPropertiesAndMethodValues(Array.prototype))
+
+    /*
+    also learn:
+    forEach (for loop)
+    some, every, reduceRight,contains
+    indexOf
+
+
+     */
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Parsing</title>
+    <script>
+        /*
+        defer tag: waits still ready state interactive is run, and then runs
+        async tag: run it anytime, it doesn't impact the page
+        src=""async
+         loading
+         interactive
+         deferred scripts
+         DOMContentLoaded // Most liraries target DOMcontent loaded
+         complete
+         windowsLoadEvent
+         */
+    </script>
+</head>
+<body>
+
+<script>
+    /*
+    Parsing: browser makes getRequest to server. Server sends back a string (HTML)
+    Browser has a rendering engine(webkit) parses the HTML data
+    Webkit creates the node tree representing the HTML tag. (nesting them to form the DOM structure)
+    This is parsing.
+    Most browsers do progressive rendering.
+    This DOM structure is available in JS as DOM API.
+    Parsing stages:
+    1. <image> tag : parse makes image tag and sends another getRequest for image
+    2. This does not stop parsing process while images is being downloaded, like iframes (asynchronous data)
+    3. <script> also needs getRequest. It stops the parsing process till the script is downloaded and run.
+       hence it is good to put scripts at the bottom of the page.
+       ----
+
+       How to target: Mainly document object and target the events
+
+       Flash of unstyled content: if you use @import to load CSS
+     */
+ //   document.getElementById("something").innerHTML = "Ayo" // Parsing process stops. Element not created
+</script>
+<script>
+    var start = new Date();
+
+    console.log(document.readyState);
+    console.log(new Date() -start, 'ms');
+   // console.log(document.readyState)
+</script>
+<img src ="DOM1.jpg">
+<div id="something"></div>
+<script>
+
+    document.getElementById("something").innerHTML = "Ajsjhsd";
+
+    document.addEventListener("readystatechange", function(){
+
+        console.log(document.readyState);
+        console.log(new Date() -start, 'ms');
+        /*
+        readystate: shows state of the document
+        loading:
+        interactive: DOM parsed (async data not yet)
+        complete: async data parsed
+
+        Document object is different from window object. (the screen is window object)
+        Even if complete is is fired screen might be empty.
+        Window renders the pages
+       Windows load event gets fired later
+         */
+    })
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        console.log("DOM content load event was fired")
+        console.log(new Date() -start, 'ms');
+
+    })
+
+      window.addEventListener("load", function(){
+          console.log("window's load event was fired");
+          console.log(new Date() -start, 'ms');
+      })
+
+</script>
+</body>
+</html>

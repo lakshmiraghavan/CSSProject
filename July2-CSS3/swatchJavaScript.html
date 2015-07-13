@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #swatchContainer{
+            position:relative
+        left:calc(50% - 25px);
+        }
+        div.swatch{
+            left:calc(50% - 25px);
+            position:absolute;
+            transform-origin: 50% 100%;
+            transition:transform 1000ms ease;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="swatchContainer"></div>
+<button id="btn">Show</button>
+<button id="btn2">rotate</button>
+
+<script>
+    var show=document.querySelector("#btn");
+    show.addEventListener('click', function(e){
+        console.log(e)
+        createSwatch();
+        swatchStyle();
+    })
+
+    var rotate = document.querySelector("#btn2");
+    rotate.addEventListener('click', function(){
+        var divs = document.querySelectorAll('.swatch');
+        for (var i=0; i <divs.length; i++){
+            divs[i].style.transform = 'rotate(' + (45 * i) + 'deg)';
+            divs[i].style.backgroundColor = randomColor();
+        }
+    })
+
+    var parent = document.querySelector("#swatchContainer")
+
+    function createSwatch() {
+        for (var i = 0; i < 8; i++) {
+        var parent = document.querySelector("#swatchContainer")
+        var div = createElement('div', parent, "swatch");
+            parent.appendChild(div);
+        }
+    }
+    function swatchStyle(){
+        var rgb =[];
+        var divs = document.querySelectorAll('.swatch');
+        for (var i=0; i <divs.length; i++){
+            divs[i].style.id = 'i+1';
+            divs[i].style.height= 200 +"px";
+            divs[i].style.width= 50 +"px";
+           divs[i].style.backgroundColor="red";
+        }
+    }
+
+    var Colors = ['00','33','66','99','cc','ff','ee','aa'];
+    var rand = function() {
+        return Math.floor(Math.random()*6);
+    };
+    var randomColor = function() {
+        var r = Colors[rand()];
+        var g = Colors[rand()];
+        var b = Colors[rand()];
+        return "#"+r+g+b;
+    };
+
+
+
+    function createElement(elementType, parent, className, innerHTML, custom) {
+            var element = document.createElement(elementType);
+            if (parent) parent.appendChild(element);
+            if (className) element.className = className;
+            if (innerHTML) element.innerHTML = innerHTML;
+            if (typeof custom !== 'undefined') {
+                for (var prop in custom) {
+                    element.setAttribute(prop, custom[prop]);
+                }
+            }
+            return element;
+        }
+</script>
+</body>
+</html>

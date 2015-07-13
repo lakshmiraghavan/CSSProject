@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font: 300 1em 'Helvetica Neue';
+        }
+        ul >li >span{
+            display: inline-block;
+            padding: 0.35em 0.5em;
+            background-color: #eee;
+        }
+        li{
+            margin:0.5em
+        }
+        em{
+            color:white
+        }
+
+       span:hover +em{
+           color:black;
+           transition: color 500ms ease
+       }
+
+        li>span{
+            margin:1em
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <span class="key">Name</span>
+        <em>Name1</em>
+    </li>
+    <li>
+        <span class="key">Design</span>
+        <em>UI Developer</em>
+    </li>
+</ul>
+
+</body>
+</html>

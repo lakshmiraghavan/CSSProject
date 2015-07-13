@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    console.log("hello")
+
+    /*
+    Create an object: object literal. special characters in ''
+     */
+    //1. Object Literal
+    var o = {
+        name: 'hi',
+        sayHello: function(){
+            console.log("hello world")
+        }
+    };
+
+    console.log(o.name); //Dot operator
+    console.log(o['name']);// Array notation
+
+    var prop_name = 'name';
+    console.log(o[prop_name]); //dynamically pickup property names
+
+    o.sayHello(); //method
+
+    //2. Constructors (first create function)
+
+    function Animal(_specific){
+        //this.type = 'animal' is same as Animal.prototype.type = "animal"
+        this.specific = _specific;
+    }
+    Animal.prototype.type = 'animal';
+    var dog = new Animal("dog"); // () not necessary
+    /*
+
+   */
+
+    console.log(dog) // type animal
+    console.log(dog.type)
+    /*
+    new operator: 1. New object is created.
+                  2. Attribute prototype points to Animal.prototype (parent)
+                  3. Refers to the newly created object using "this" keyword & invokes constructor
+                     (invokes the function and sets this to new object)
+     */
+    /*
+    dog has:
+    properties: like name
+    method: bark
+
+    attributes:
+    prototype: reference to parent object. Points to Animal.prototype (attributes cannotbe accessedas properties)
+    We access the prototype property of animal object. Constructor functions have prototype attribute and prototype
+     property. Normal objects don't have prototype property.
+    classname:
+    extensible:
+     */
+
+    /*
+    3. Using Object.create
+     */
+    var x = Object.create(o);
+    console.log(x);
+    var platypus = Object.create(Animal.prototype);
+    console.log(platypus)
+    Animal.call(platypus);
+
+    /*
+    git command
+    git init -> initialize
+    git add .. -> files to add
+    git commit -> commit files
+    git push g master -> files are put in github
+    (g is the branch. master is pointer to latest commit)
+     */
+
+</script>
+
+</body>
+</html>

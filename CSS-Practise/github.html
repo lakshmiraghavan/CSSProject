@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        /*
+        Author: Jyotika Banerjee
+        Date: 06/06/2014
+
+        Comments from 1st commit
+        Got most of the structure ready
+        However, some of the features are not working correctly yet
+        1. The 'left_content' class needs to be using left float, with the text left aligned but in the
+        center of the div section.
+        2. In the footer, there is a extra line between the two sentences. The size of the text needs to be adjusted too.
+
+
+        Comments from 2nd commit
+        1. Menu bar ready, but for the 'right floated' section, with menu item links, unable to eliminate the padding on top.
+        2. The button for sign in should be on the extreme right of the menu header. However, I am unable to bring it on
+        the first line instead of the bottom one.
+        3. Issues from second commit not fixed yet. Please see comments there.
+
+        */
+        .logo{
+            display: inline-block;
+            float: left;
+            margin-left: 2em;
+        }
+        .logo > img{
+            width: 10em;
+        }
+
+        .search_box{
+            padding-top: 1em;
+        }
+        .menu_links{
+            float: right;
+            margin-left:0.3em;
+            margin-right: 0.3em;
+            padding-top: 0em;
+            padding-right: 1em;
+
+        }
+        .menu_button{
+            height: 3em;
+            width: 10em;
+            margin-left:0.5em;
+            margin-right: 0.5em;
+            font: Arial;
+            text-align: center;
+            background-color: whitesmoke;
+            color: black;
+
+            border-radius: 1em;
+            border-size: 4em;
+        }
+
+
+        header{
+            height: 7em;
+            background-color: whitesmoke;
+        }
+        article{
+            height: 25em;
+            background-color: #2a2a2a;
+        }
+        footer{
+            height: 7em;
+            background-color: whitesmoke;
+            font-family: Arial;
+            text-align: center;
+            font-size: 16pt;
+        }
+
+        .left_content{
+            margin: 0.5em 1em;
+            margin-left: 5em;
+            width: 50em;
+            font-family: Arial;
+            text-align: left;
+            float: left;
+            color: white;
+        }
+        form
+        {
+            /*width: 10em;*/
+            margin-top: 3em;
+            float: right;
+        }
+        form > div >input {
+            margin: 0.5em 1em;
+            width: 25em;
+            border-size: 4em;
+        }
+        form > button {
+            height: 3em;
+            width: 25em;
+            margin-left:1em;
+            margin-right: 1em;
+            font: Arial;
+            text-align: center;
+            background-color: green;
+            color: white;
+
+            border-radius: 1em;
+            border-size: 4em;
+
+        }
+
+        .freetext{
+            width: 25em;
+            margin-left:1em;
+            margin-right: 1em;
+            font-family: Arial;
+            font-size: 10pt;
+            color: gray;
+        }
+
+
+
+
+    </style>
+
+
+</head>
+<body>
+<header>
+    <div class = "logo">
+        <img src="http://media.creativebloq.futurecdn.net/sites/creativebloq.com/files/images/2013/04/newgit.jpg" alt="logo"/>
+    </div>
+    <div class = "search_box">
+        <input type="text" action="submit"/> </input>
+    </div>
+    <div class="menu_links">
+        <a href="https://github.com/explore"> Explore</a>
+    </div>
+    <div class="menu_links">
+        <a href="https://github.com/features"> Features</a>
+    </div>
+    <div class="menu_links">
+        <a href=" https://enterprise.github.com/"> Enterprise</a>
+    </div>
+    <div class="menu_links">
+        <a href=" https://github.com/blog"> Blog</a>
+    </div>
+    <div class="menu_button">
+        <button>Sign in</button>
+    </div>
+</header>
+<article>
+    <div class="left_content">
+        <h1>Build software <br> better, together.</h1>
+        Powerful collaboration, code review, and code management for <br> open source and private projects. Need private repositories?
+        <br>  <a href="https://github.com/pricing"> Upgraded plans start at $7/mo.</a>
+    </div>
+    <form class="form" action="submit">
+        <div>
+            <input type="text" placeholder="Email"/>
+        </div>
+        <div>
+            <input type="text" placeholder="Username"/>
+        </div>
+        <div>
+            <input type="password" placeholder="Password"/>
+        </div>
+        <div class="freetext">
+            Use at least one lowercase letter,
+            one numeral, and seven characters.
+        </div><br>
+        <button>Sign-Up for GitHub</button>
+        <div class="freetext">
+            <br>   By clicking "Sign up for GitHub",
+            you agree to our <a href="https://help.github.com/articles/github-terms-of-service"> terms of service </a>
+            and <a href="https://help.github.com/articles/github-privacy-policy"> privacy policy</a>.
+            We will send you account related emails occasionally.
+        </div>
+    </form>
+
+</article>
+<footer>
+    <h2>Why you'll love GitHub</h2>
+    <h4> <a href="https://github.com/features">Powerful features</a> to make software development more collaborative.</h2>
+</footer>
+</body>
+</html>

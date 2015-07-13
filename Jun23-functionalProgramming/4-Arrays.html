@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var arr = [1,1,2,2,8,8,8,9,9,9,9,10,12,13,13];
+
+        function freq(arr,element) {
+            // take an input,
+            // if the element exists in the array,
+            // print the number of times it occurs in the arry
+            // else print 'element does not exist'
+
+            var startindex = arr.indexOf(element);
+            if (startindex === -1) {
+                console.log('element ', element, ' does not exist!');
+            } else {
+                console.log(arr.lastIndexOf(element) - startindex + 1);
+            }
+        }
+
+     /*   freq(arr,1)
+        var arr1= [3,4,5,12,17,98]
+        console.log(arr1.sort(function(a,b){
+            return a-b;
+        }));*/
+
+
+        // todo: Write a binary search for arr and check the performance difference in jsperf
+
+        var numbers = [1,2,3,4,5]; // 5 * 6 / 2 = 15
+
+        var sum = numbers.reduce(function (prev, current) {
+            return prev + current;
+        }, 0);
+
+     //   console.log(sum);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

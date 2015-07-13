@@ -1,0 +1,33 @@
+ul > li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu{
+    height:70px;
+    width:100px;
+    border: solid 1px #dfdfdf;
+    display:none;
+    position:absolute;
+}
+ul.menu > li:hover {
+    background-color: dimgrey;
+}
+.boxarea{
+    height:1000px;
+    width:1000px;
+    background-color: #b7bcbc;
+}
+.folder{
+
+    height:50px;
+    width:80px;
+    background-color: #10146e;
+    margin: 50px ;
+
+}
+.name{
+    height:20px;
+    width:80px;
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var y = Object.create({});
+    y.type = "child";
+    y.certificate = "asdfdf";
+    y.name = "name is y...";
+
+    console.log(Object.getOwnPropertyDescriptor(y,"certificate"));
+
+    Object.defineProperty(y,"certificate", {
+        enumerable:false,
+        writable:false,
+        configurable:false
+        //you can write getter and setters here. Writable property doesnot matter here
+    })
+
+    for (var prop in y){
+        console.log(prop, ":", y[prop]);
+    }
+    y.certificate = "1234"; //fails silently. Else use strict
+
+    console.log(y.certificate);
+ /*   Object.defineProperty(y,"certificate", {
+        enumerable:false,
+        writable:true
+
+    })*/
+
+    y.certificate = "1234";
+  //  console.log(y.certificate); //Type error even without strict mode
+
+    var z = {};
+    Object.defineProperty(z,"name", {
+        get:function(){
+            return "lakshmi";
+        },
+        writable:false //doesnot matter here when using getter and setter as they are not data properties.
+    })
+console.log(z.name)
+    /*
+    Object,keys() // own enumerable properties
+    Object.getOwnPropertyName() // All own properties
+     */
+</script>
+</body>
+</html>

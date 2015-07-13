@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            perspective:300px /*vision is 300px away from screen*/
+            transform-style:preserve-3d; /*flat*//*always on container*/
+        }
+        div.door{
+            height:350px;
+            width:200px;
+            margin:3em auto;
+            border: 1px solid grey;
+            transform-origin: 100% 50%;
+        }
+        div.door:hover{
+            transform: rotateY(30deg);
+            trainsition: transform 500ms ease;
+        }
+        div.flap{
+            height:40%;
+            width:80%;
+            border:1px solid gray;
+            background-color: rgba(169,169,169,0.5);
+        }
+
+        div.door:hover >div.flap{
+            transform:rotateX(30deg);
+            transition: transform 1s ease 1s;
+            transform-origin: 50% 0;
+
+        }
+    </style>
+</head>
+<body>
+<div class="door">
+    <div class="flap"></div>
+    <script>
+        /*preserve 3d , perspective*/
+    </script>
+
+</div>
+</body>
+</html>

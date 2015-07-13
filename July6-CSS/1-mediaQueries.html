@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        html,body{
+            height:100%;
+            margin:0;
+            transition: all 1000ms ease;
+            color:white;
+        }
+        /*
+              100% + padding : causes scroll
+                */
+
+        @media screen and (max-device-width:600px){
+            body{
+                background-color: red;
+            }
+        }
+        @media screen and (min-device-width: 600px) {
+            body{
+                background-color: darkred;
+            }
+        }
+        @media screen and (orientation: landscape){
+            body{
+                background-color: green;
+            }
+        }
+    /*
+    to get grid width = 8/12 *100%
+    then apply media queries
+    */
+    </style>
+    <script>
+        //you can use base.css class as well
+        // link rel='stylesheet' href='base.css' media='screen and (max-width: 600px)" />
+        //in this case, base.css kicks in only when media is screen and max width is 600px
+        //screen, print, speech, all
+        //media features: max-width, max-device-width, orientation,etc
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

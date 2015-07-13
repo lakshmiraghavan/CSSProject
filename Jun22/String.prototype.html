@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str = "Hello World"
+
+    console.log(str.charAt(1));
+    console.log(str.charCodeAt(1))
+
+    var str = 'To be, or not to be, that is the question.';
+  //  console.log(str.includes('To be', 1));
+
+    var str = 'To be, or not to be, that is the question.';
+
+    console.log(str.endsWith('question.')); // true
+    console.log(str.endsWith('to be'));     // false
+    console.log(str.endsWith('to be', 19)); // true
+
+    //
+
+    'Blue Whale'.indexOf('Blue');     // returns  0
+    'Blue Whale'.indexOf('Blute');    // returns -1
+    'Blue Whale'.indexOf('Whale', 0); // returns  5
+    'Blue Whale'.indexOf('Whale', 5); // returns  5
+    'Blue Whale'.indexOf('', 9);      // returns  9
+    'Blue Whale'.indexOf('', 10);     // returns 10
+    'Blue Whale'.indexOf('', 11);     // returns 10
+   console.log('Blue Whale'.indexOf('', 12));     // returns 10
+
+    //
+    'canal'.lastIndexOf('a');     // returns 3
+    'canal'.lastIndexOf('a', 2);  // returns 1
+    'canal'.lastIndexOf('a', 0);  // returns -1
+    'canal'.lastIndexOf('x');     // returns -1
+
+    var str = 'For more information, see Chapter 3.4.5.1';
+    var re = /(chapter \d+(\.\d)*)/i;
+    var found = str.match(re);
+    console.log(found)
+</script>
+
+</body>
+</html>

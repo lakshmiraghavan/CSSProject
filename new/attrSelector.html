@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="parent">
+    <li data-secure="false">Raw Data</li>
+    <li data-secure="true">Raw Data</li>
+    <li data-secure="false">Raw Data</li>
+    <li data-secure="true">Raw Data</li>
+    <li data-secure="false">Raw Data</li>
+    <li data-secure="true">Raw Data</li>
+</ul>
+
+
+<div style ="background-color :red; height:300px; width: 400px">
+</div>
+<div class='mydiv' id='divx' data-xname='divx32'>
+<input style= "background-color:red"/>
+
+<img src="#" />
+<script>
+    function allAttributes(id) {
+        var attr = document.getElementById(id).attributes;
+        console.log(attr);
+        obj = {}
+        for (var i = 0; i < attr.length; i++) {
+            obj[attr[i].name] = attr[i].value
+        }
+        return obj;
+    }
+    console.log(allAttributes('divx'))
+
+
+    var parent = document.getElementById('parent');
+    console.log(parent);
+    var children = parent.children;
+    //var all = document.querySelectorAll("li[data-secure]")
+    for(var i=0; i<children.length;i++)
+
+    if(children[i].getAttribute('data-secure') === "false"){
+                 parent.removeChild(children[i]);
+    }
+
+    var x = document.querySelectorAll('*[style="background-color:red"]');
+    console.log(x);
+</script>
+</body>
+</html>

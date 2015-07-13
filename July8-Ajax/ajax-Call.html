@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" id="query">
+<ol></ol>
+<script>
+    //using github
+document.addEventListener("keydown", function(e) {
+    if(e.keyCode == 13) {
+        var search = document.querySelector("#query").value;
+        console.log(search);
+        getAjaxCall(search);
+    }
+
+    });
+
+ function getAjaxCall(search) {
+     var xhr = new XMLHttpRequest;
+     console.log(xhr.readyState);
+     xhr.addEventListener('readystatechange', function () {
+         console.log(xhr.readyState);
+         if (xhr.readyState === 4 && xhr.status === 200) {
+             var obj = JSON.parse(xhr.responseText);
+             // console.log(obj.items[0].name);
+
+             for (var i = 0; i < obj.items.length; i++) {
+                 var count = 0;
+                 for (var prop in obj['items']) {
+                     var ol = document.querySelector('ol');
+                     createElement('li', ol, 'name' + count, obj['items'][prop]['full_name']);
+                     //console.log(obj.items);
+                 }
+             }
+         }
+
+     });
+     xhr.open("GET", "https://api.github.com/search/repositories?q=" + search);
+     xhr.send();
+ }
+
+
+    function createElement(elementType, parent, className, innerHTML, custom) {
+        var element = document.createElement(elementType);
+        if (parent) parent.appendChild(element);
+        if (className) element.className = className;
+        if (innerHTML) element.innerHTML = innerHTML;
+        if (typeof custom !== 'undefined') {
+            for (var prop in custom) {
+                element.setAttribute(prop, custom[prop]);
+            }
+        }
+        return element;
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

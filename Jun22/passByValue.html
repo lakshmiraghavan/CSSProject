@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function test (x){
+        x = "asdf"
+    }
+    var z = "info"
+    test(z);
+    console.log(z); // will be info
+
+    //====
+
+    function test2(x){
+        x.type = "new"
+     //   x={type: "new"}; // x=12324#
+    }
+
+    var p = {type: "old"}; //234324#
+    test2(p); // passing value //234324#
+    console.log(p);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Event Pahse</title>
+    <style>
+        div{
+            background-color: rgba(255,0,0,0.6);
+            border:1px solid red;
+            padding:3em;
+        }
+    </style>
+</head>
+<body>
+<button>Event Phase</button>
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+<script>
+    //Event phase MDN
+    /*
+
+     */
+    document.getElementById('button').addEventListener('click', function(event){
+        console.log(event.eventPhase)
+    })
+   // var div1 = document.querySelector('#div1');
+
+    document.querySelector('#div1').addEventListener('click',clickHandler, true);
+    document.querySelector('#div3').addEventListener('click',clickHandler, true);
+    /*
+     clicking on div 3 .phase is true. So true and false does not matter here.
+     since ClickHandler will be fired once for true and once for false.If you want to fire it
+     multiple times for true,you have to write another function for it.
+     or use bind
+
+   */
+    document.querySelector('#div3').addEventListener('click',clickHandler.bind(document.querySelector('#div3')));
+   // div1.addEventListener('click', function(e)
+
+    function clickHandler(event){
+        console.log("Event is registered at:",event.currentTarget); //where event is registered
+        console.log("Event is clicked/fired at: ",event.target); // where event was fired
+        console.log("Event Phase",event.eventPhase) // gives 3 which means bubbling. Phase 2: at target: where
+        // event.target
+        //and event.currentTarget is same //1 is capturing
+        //Event travels from: Capturing->at target -> Bubbling. True or false helps find when to fire the handler
+        //During bubbling or capturing phase.
+    }
+    /*
+     div1.addEventListener('click', function(e){
+     console.log(this);
+     console.log(event.currentTarget); // will printout div1 as event is registered on div1
+
+     div3.addEventListener('click', function(e){
+     console.log(this);
+     console.log(event.currentTarget); // will printout div1 as event is registered on div1
+     })
+
+     */
+
+    /*
+    Stop Propagation
+    Stop Immediate Propagation
+     */
+</script>
+
+</body>
+</html>

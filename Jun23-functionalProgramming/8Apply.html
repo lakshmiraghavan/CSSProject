@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+</ul>
+<script>
+    var elements = Array.prototype.slice.call(document.getElementsByTagName("li"));
+    console.log(elements.map(function(li){
+        return li.innerHTML;
+    }));
+</script>
+
+<script>
+    function sum(a,b) {
+        return a + b;
+    }
+    console.log(sum(10,11,12,13))
+
+    function sum2(){
+        console.log(Array.isArray(arguments));//arguments is a object parent is Object.prototype
+        console.log(Array.prototype.slice.call(arguments))
+        var args = Array.prototype.slice.call(arguments)
+        args.reduce(function(a,b){
+            return a+b;
+        })
+    }
+
+    function sum3(){
+        return Array.prototype.reduce.call(arguments, function(a,b){
+            return a+b;
+        })
+    }
+</script>
+</body>
+</html>

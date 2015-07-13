@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class='mydiv' id='divvx' data-xname='divx32'></div>
+<div id ="check1" class="new"></div>
+<div style="background-color: red"></div>
+<img id="one">
+<img id="two">
+<img id="three">
+<div     id="user" data-id="1234567890" data-user="johndoe" data-date-of-birth="10/11/2014">John Doe
+</div>
+<DIV ID="test"><B>This is a demo for inner/outer text/html combinations</B></DIV>
+<div id="divA">This is <span>some</span> text</div>
+<p id="para1"><ul></ul></p>
+<div id="divx"></div>
+<script>
+    function allAttributes(id) {
+        var attr = document.getElementById(id).attributes;
+        console.log(attr);
+        obj = {}
+        for (var i = 0; i < attr.length; i++) {
+            obj[attr[i].name] = attr[i].value
+        }
+        return obj;
+    }
+    console.log(allAttributes('divvx'))
+
+    var div1 = document.getElementById('check1');
+    console.log(div1.hasAttribute('class'));
+    console.log(div1.getAttribute('class'));
+
+    var elements = document.getElementsByTagName("*");
+    console.log(elements)
+    for (var i=0; i<elements.length; i++){
+
+    }
+
+    var images = document.getElementsByTagName("img");
+    console.log(images);
+    var userdataset = document.getElementById('user');
+    var dataset = userdataset.dataset;
+    console.log("dataset",dataset);
+    console.log(dataset.dateOfBirth)
+
+    var test = document.getElementById("test");
+    console.log("InnerHTML is: " + test.innerHTML);
+    console.log("OuterHTML is: " + test.outerHTML);
+
+    var text1 = document.getElementById("divA").textContent;
+    console.log(text1)
+
+
+    var p = document.getElementById("para1");
+    var p_prime = p.cloneNode(true); //true if children need to be cloned.False is only specific node is cloned
+    console.log(p_prime)
+
+var div = document.getElementById('divx');
+   var text =  document.createTextNode("I am a text node");
+    div.appendChild(text);
+    console.log(div);
+
+</script>
+
+</body>
+</html>

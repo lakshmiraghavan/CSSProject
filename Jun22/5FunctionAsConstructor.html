@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function square(a){
+        return a*a;
+    }
+    console.log(square(10));
+
+    var square2 = new Function("a","return a*a");
+    console.log(square(20));
+
+    console.log(Object.getPrototypeOf(square2) === Function.prototype);//true
+
+    console.log(typeof Function.prototype); //function
+
+    console.log(Object.getPrototypeOf(Function.prototype));// Object.prototype
+
+    /*
+    Object.prototype: has toString, valueOf which is overridden by function.prototype
+     */
+    console.log(Object.getOwnPropertyNames((Object.prototype)))
+
+    console.log(Object.getOwnPropertyNames((Function.prototype))) //call apply bind
+
+    console.log("parent of Object.prototype", Object.getPrototypeOf(Object.prototype)); //null
+
+    var x = Object.create(null)
+    console.log(Object.getPrototypeOf(x) === Object.prototype); //false
+//    console.log(x.toString()) //type error
+
+    //refer MDN
+
+</script>
+</body>
+</html>

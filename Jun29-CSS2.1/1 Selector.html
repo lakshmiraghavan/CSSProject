@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+div {
+    /*Element Selector*/
+    padding: 0.35em 0.5em;
+    margin:0.25em;
+    font: 300 1em 'Helvetica Nueue', 'Segoe UI', 'Droid Sans', 'sans-serif'; /*Fallbacks*/
+    }
+
+    .myclass{
+        background-color: #ddd; /* #aabbcc means R=aa, G =bb, B=cc -> rgb(170, 187,204){parseInt of aa, bb, cc} */
+    }
+    [data-myattr]{
+        background-color: #bbb;
+    }
+    #myid{
+        background-color: #aaa;
+    }
+
+    </style>
+</head>
+<body>
+<script>
+    /*
+    Specificity: Set of 4 numbers
+    4numbers -> 0 0 0 0
+    <inline> <id> <class/attribute> <element>
+     */
+</script>
+<ul>
+    <li>Important</li>
+    <li>Specificity</li>
+    <li>Cascade</li>
+</ul>
+<div>ELement Selector
+    <div class="myclass">ClaSS sELECTOR</div>
+    <div data-myattr="myDiv"></div>
+    <div id="myid">Id selector</div>
+    <div style="background-color: #777">Style attribute</div>
+</div>
+</body>
+</body>
+</html>

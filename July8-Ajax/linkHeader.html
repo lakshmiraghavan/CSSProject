@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var link = '<https://api.github.com/search/repositories?q=angularjs&page=2>; rel="next", ' +
+                '<https://api.github.com/search/repositories?q=angularjs&page=34>; rel="last"';
+        /**
+         * @function getLinkObject
+         * @param {string} link_header A string containing the value of the link header
+         *
+         */
+        function getLinkObject(link_header) {
+         //   console.log(link);
+          //  console.log(link.match(/<[^>]+>;\s?rel="[^"]+"/gmi));
+            var regex = /<([^>]+)>;\s?rel="([^"]+)"/gmi;
+            var data = [], obj = {};
+            do {
+                data = regex.exec(link);
+                if (data) {
+                    console.log(data[1], data[2]);
+                    obj[data[2]] = data[1]
+                }
+            } while (data);
+            return obj;
+            // falsy values in JS: ['', 0, false, null, undefined, NaN]
+            // return an object : { next: 'https ... page=20', last: 'https: ... page=34' }
+        }
+        console.log(getLinkObject(link));
+        document.addEventListener('DOMContentLoaded', function () {
+            var link_obj = getLinkObject(link);
+            for (var prop in link_obj) {
+                console.log(link_obj)
+                var selector = 'a[data-link="' + prop + '"]'; // a[data-link="prev"]
+                console.log(selector);
+                document.querySelector(selector).href = link_obj[prop];
+            }
+        });
+    </script>
+</head>
+<body>
+<a href="" data-link="first">First</a>
+<a href="" data-link="prev">Previous</a>
+<a href="" data-link="next">Next</a>
+<a href="" data-link="last">Last</a>
+</body>
+</html>

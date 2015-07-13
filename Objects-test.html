@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //
+
+    //21
+
+    function Car(){
+        Car.numberofCars = Car.numberofCars || 0;
+        Car.numberofCars++; //static
+    }
+
+    Object.defineProperty(Car.prototype, 'numberofCars', {
+        get:function(){
+            return Car.numberofCars; //instance
+        }
+    })
+    //20. static methods: on constructor:
+    //
+    //19. U cant directly change prototype of an object. In ecmascript6 you can do SetPrototypeOf
+
+    //16. creating a function: new Function, function expression, function declaraction
+
+    // 15. hasow property and in
+
+
+ //8. Use Object.define property
+ /*
+ for functions: getter property is done
+ */
+
+//3. deleteOnSteroids recursive
+
+//22
+
+//Clone an object: 3 checks:
+//If typeof property is function or object
+
+var m = {
+    sayHello:function(){
+
+    }
+}
+
+var n = {}
+n.sayHello = m.sayHello.bind(n)
+
+/*
+primitives directly copied
+
+objects need to be recursively copied
+*/
+
+    //23
+
+
+
+    console.log(Object.prototype.toString.call(Array.prototype.slice))
+    console.log(Object.getPrototypeOf(Array.prototype.slice))
+
+
+    function Sample(val){
+        this.val = val;
+    }
+
+    Sample.prototype.valueOf = function(){
+        return this.val;
+    }
+
+    var x = new Sample(10);
+    console.log(x);
+    console.log(y);
+    var y = new Sample(100);
+    console.log(x+y);
+
+
+    var x= {
+        val : 3
+    }
+
+    var y = new Object(x);
+
+    console.log(x === y)
+
+
+    function Car(){
+        console.log("hi")
+    }
+    var a= new Car();
+    console.log(Object.getPrototypeOf(a));
+
+
+    function Change(){
+        console.log("bye");
+    }
+
+    var b = new Change();
+
+    a.prototype.constructor = b;
+    console.log(Object.getPrototypeOf(a));
+
+
+    var z={
+        val:4
+    }
+
+    var x={
+        val:3
+    }
+
+    var y = Object.create(x)
+
+    console.log(Object.getPrototypeOf(y))
+
+   console.log(y.prototype)
+
+    y.prototype = z;
+
+    console.log(Object.getPrototypeOf(y))
+
+   /*
+   IT can be property or attribute.
+   x.prototype targets the property: You cant get the parent of of x using this.
+
+    */
+
+
+</script>
+
+</body>
+</html>

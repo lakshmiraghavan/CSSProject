@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <style>
+        html, body{
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+        .circle {
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            position: fixed;
+            border-radius: 50%;
+        }
+        .animate{
+            animation:kf 750ms ease;
+            animation-fill-mode: forwards; /*stay with last color*/
+        }
+        @keyframes kf {
+        0% {
+            background-color: red;
+        }
+        100% {
+            background-color: white;
+        }
+        }
+    </style>
+</head>
+<body>
+<script>
+    function Position(x,y){
+        this.pos =[x,y];
+    }
+    Position.prototype.x = function(){return this.pos[0];};
+    Object.defineProperty(Position.prototype,'x',{
+        get:function(){
+            return this.pos[0];
+        }
+    })
+
+    Position.prototype.y = function(){return this.pos[1];};
+    Object.defineProperty(Position.prototype,'y',{
+        get:function(){
+            return this.pos[1];
+        }
+    })
+    /*
+    Events chapter of JavaScript Definitive Guide
+     */
+    document.addEventListener("DOMContentLoaded",function(){
+    document.getElementById("btn").addEventListener('click', function(event){
+        console.log(event);
+    })
+        document.body.addEventListener('click', function (event) {
+            var position = new Position(event.clientX, event.clientY);
+
+            var circle = createElement('div', 'circle', document.body);
+            circle.style.left = position.x + 'px';
+            //console.log(position.x)
+            circle.style.top = position.y + 'px';
+            circle.style.backgroundColor = 'red';
+            circle.classList.add('animate');
+
+            setTimeout(function(){
+
+            })
+
+            /*
+            or delete the div
+
+             * /
+
+            /*
+            To get the full height:  height:100%.
+            Else clicking might not captur the event
+            */
+        })
+
+    });
+
+    function createElement(type, _class, parent) {
+        var element = document.createElement(type);
+        element.className = _class;
+        parent.appendChild(element);
+        return element;
+    }
+
+
+
+
+
+    var date = new Date();
+    date // UTC time
+
+    /*
+    ClientX, ClientY
+     */
+</script>
+<button id="btn">Click to get Event</button>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="parent">
+    <div id="child"></div>
+</div>
+<script>
+
+    if (document.referrer.indexOf("http://www.google.com/search?") == 0) {
+        var args = document.referrer.substring(ref.indexOf("?")+1).split("&");
+        for(var i = 0; i < args.length; i++) {
+            if (args[i].substring(0,2) == "q=") {
+
+
+
+    document.write("<p>Welcome Google User. ");
+    document.write("You searched for: " +  (args[i].substring(2)).replace('+', ' '));
+    break;
+    }
+    }
+    }
+
+
+    var child = document.getElementById('child');
+    while(child = child.parentElement){
+        if(child.id == 'parent') {
+            console.log('found the parent')
+        }
+
+    }
+
+
+
+</script>
+</body>
+</html>

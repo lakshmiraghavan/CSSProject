@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Stop Propagation</title>
+    <style>
+        div{
+            background-color: rgba(0,255,0,0.6);
+            border:1px solid green;
+            padding:3em;
+        }
+    </style>
+</head>
+<body>
+<div id="one">
+    <div id="two">
+        <div id="3">
+
+        </div>
+    </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+    var div = document.querySelectorAll('div');
+      for(var i=0; i < div.length; i++) {
+
+          div[i].addEventListener('click', clickHandler1, false);
+          div[i].addEventListener('click', clickHandler2, false);
+      }
+
+          function clickHandler1(event) {
+                 event.stopImmediatePropagation()
+               // event.stopPropagation();
+              console.log(event.target)
+              console.log(event.currentTarget)
+              console.log(event.eventPhase)
+              this.style.backgroundColor = 'yellow';
+
+              alert("event target is: " + event.target + " " + "current target is: " + event.currentTarget + " "
+              + "event Phase is: " + event.eventPhase + " " + "div id is: " + event.target.id)
+              this.style.backgroundColor = "red";
+          }
+
+          function clickHandler2(event) {
+            //   event.stopImmediatePropagation()
+             //  event.stopPropagation();
+              console.log(event.target)
+              console.log(event.currentTarget)
+              console.log(event.eventPhase)
+              this.style.backgroundColor = 'blue';
+
+
+              alert("event target is: "+  event.target + " " + "current target is: " + event.currentTarget + " "
+              + "event Phase is: " + event.eventPhase + " " + "div id is: " + event.target.id)
+              this.style.backgroundColor = "black";
+
+      }
+
+    })
+
+
+</script>
+
+</body>
+</html>

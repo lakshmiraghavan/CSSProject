@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    3 Major Attributes:
+    prototype -> reference to parent of current object
+    extensible -> add dynamic properties to the object on the fly
+    class name -> Base class to create an object (not the function classes though)
+    */
+    function Animal(){};
+    var dog = new Animal();
+    console.log(Object.getPrototypeOf(dog) === Animal.prototype);
+    console.log(Object.prototype.isPrototypeOf(dog)) // is not direct descendant
+
+    //=======extensible
+
+    console.log("Object.isExtensible(dog)",Object.isExtensible(dog));
+    dog.type = "labrador";
+    console.log(dog.hasOwnProperty('type'));
+
+    Object.preventExtensions(dog);
+
+    dog.bark = "woof"
+    console.log(dog.hasOwnProperty('bark'));
+
+    //==========class name
+    var obj ={}
+    console.log(obj.toString());
+    /*
+    object Object. Second one is the constructor
+     */
+
+    console.log(Object.prototype.toString());
+
+    //Invocation context -> functions
+
+    function sayHello(){
+        console.log("hello from", this.name)
+    }
+ sayHello();
+ /*
+    this points to global window object.
+    To change invocation:
+     */
+     sayHello.call({
+         name:"lakshmi"
+     })
+     /*
+     call points to the object that ius newly created
+      */
+
+    var arr = []; //Array.prototype
+    console.log(arr.toString());
+    /*
+   Array.prototype toString is different. To get the object.prototype.toString
+     */
+
+    console.log(Object.prototype.toString.call(arr)); // This gives the class name
+    /*
+    Class name is for native objects only. Not for user defined objects.
+     */
+
+    function getClassNameAttribut(obj){
+
+     //   return Object.prototype.toString.call(obj).slice(8,-1);
+        var str = Object.prototype.toString.call(obj);
+        return str.substring(7, str.length - 1);
+    }
+    console.log(getClassNameAttribut(arr))
+
+
+</script>
+
+</body>
+</html>

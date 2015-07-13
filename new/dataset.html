@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a href="#"></a>
+<div id="user" data-id="1234567890" data-user="johndoe" data-date-of-birth="10/11/2014">John Doe
+<div id = 'child'></div></div>
+<div id= 'div32' data-name ='John Deo'>IMDB rating</div>
+<script>
+    var l = document.getElementsByTagName("a");
+    console.log(l);
+    console.log(document.getElementById('div32').dataset.name)
+
+   console.log(HTMLElement.parentNode)
+    var userdataset = document.getElementById('user');
+    var child = document.getElementById('child');
+    console.log(child.parentNode)
+    var dataset = userdataset.dataset;
+    console.log("dataset",dataset);
+    console.log(dataset.dateOfBirth)
+    userdataset.dataset.new = 'text';
+</script>
+
+</body>
+</html>
