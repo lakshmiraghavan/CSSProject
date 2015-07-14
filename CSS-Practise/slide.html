@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="base.css"/>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#slider').click(function () {
+                $(this).addClass('slide_up');
+            });
+        });
+    </script>
+    <style>
+        div {
+            width: 600px;
+            max-height: 300px;
+            height: 300px;
+            background-color: #2a3a48;
+        }
+
+        .slide_up {
+            max-height: 0;
+            overflow-y: hidden;
+            transition: max-height 500ms ease;
+        }
+
+    </style>
+</head>
+<body>
+<div id="slider">
+
+</div>
+</body>
+</html>

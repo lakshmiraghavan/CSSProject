@@ -588,3 +588,72 @@ div.quad2Bla{
     transform-origin:0% 50%;
     transform: rotateZ(45deg);
 }
+
+div.circles ul{
+    float:left
+}
+div.circles ul li{
+    list-style: none;
+    display: inline-flex;
+    font-size: 11px;
+    padding-top:1em;
+    margin:0;
+
+}
+div.captions ul{
+    float:left
+}
+div.captions ul li{
+    list-style: none;
+    display: inline-flex;
+    font-size: 11px;
+    margin-left: 12px;
+    margin-top: 1em;
+
+}
+ul#ulRight{
+    float:right;
+}
+
+ul#capRight{
+    float:right;
+}
+
+ul#ulRight li.laurel {
+    width: 80px;
+    height: 76px;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    background: url(http://www.awwwards.com/bundles/tvweb/images/ico-laurel.svg) no-repeat;
+    background-size: 100% 100%;
+}
+ul#ulRight li.laurel span {
+    display: block;
+    text-align: center;
+    color: #a6abab;
+    text-transform: uppercase;
+    line-height: normal;
+}
+
+ul#ulRight li.laurel span.type {
+    margin-top: 17px;
+    margin-left: 2em;
+    font-size: 11px;
+}
+ul#ulRight li.laurel span.day {
+    font-size: 18px;
+    line-height: 19px;
+    letter-spacing: 1px;
+    font-family: Helvetica, sans-serif;
+    margin-top: 30px;
+    margin-left: -1.5em;
+}
+ul#ulRight li.laurel span.month {
+    font-size: 11px;
+    line-height: 11px;
+    margin-top: 50px;
+    margin-left: -1.5em;
+}
+div#img a img:hover{
+    opacity: 0.7;
+}
